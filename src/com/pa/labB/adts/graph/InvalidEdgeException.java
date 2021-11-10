@@ -1,7 +1,7 @@
-/*
+/* 
  * The MIT License
  *
- * Copyright 2019 brunomnsilva.
+ * Copyright 2019 brunomnsilva@gmail.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package smartgraph.view.graphview;
-
-import com.pa.proj2020.adts.graph.Edge;
-import com.pa.proj2020.adts.graph.Vertex;
+package com.pa.labB.adts.graph;
 
 /**
- * A graph edge visually connects two {@link Vertex} of type <code>V</code>.
- * <br>
- * Concrete edge implementations used by {@link SmartGraphPanel} should
- * implement this interface as this type is the only one exposed to the user.
+ * Error when using an invalid edge in calls of methods in {@link Graph}
+ * and {@link Digraph} implementations.
  * 
- * @param <E> Type stored in the underlying edge
- * @param <V> Type of connecting vertex
- *
- * @see Vertex
- * @see SmartGraphPanel
- * 
- * @author brunomnsilva
+ * @see Graph
+ * @see Digraph
  */
-public interface SmartGraphEdge<E, V> extends SmartStylableNode {
+public class InvalidEdgeException extends RuntimeException {
+
+    public InvalidEdgeException() {
+        super("The edge is invalid or does not belong to this graph.");
+    }
+
+    public InvalidEdgeException(String string) {
+        super(string);
+    }
     
-     /**
-     * Returns the underlying (stored reference) graph edge.
-     * 
-     * @return edge reference 
-     * 
-     * @see SmartGraphPanel
-     */
-    public Edge<E, V> getUnderlyingEdge();
 }

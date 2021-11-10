@@ -1,7 +1,7 @@
-/*
+/* 
  * The MIT License
  *
- * Copyright 2019 Bruno Silva.
+ * Copyright 2019 brunomnsilva@gmail.com.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,48 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package smartgraph.view.graphview;
-
-import javafx.scene.text.Text;
+package com.pa.labB.adts.graph;
 
 /**
- * A label contains text and can be attached to any {@link SmartLabelledNode}.
- * <br>
- * This class extends from {@link Text} and is allowed any corresponding
- * css formatting.
+ * A vertex contains an element of type <code>V</code> and is used both in
+ * graphs and digraphs.
  * 
- * @author Bruno Silva
+ * @param <V> Type of value stored in the vertex.
+ * 
+ * @see Graph
+ * @see Digraph
  */
-public class SmartLabel extends Text implements SmartStylableNode {
+public interface Vertex<V> {
     
-    private final SmartStyleProxy styleProxy;
-    
-    public SmartLabel() {
-        this(0,0,"");
-    }
-
-    public SmartLabel(String text) {
-        this(0, 0, text);
-    }
-
-    public SmartLabel(double x, double y, String text) {
-        super(x, y, text);
-        styleProxy = new SmartStyleProxy(this);
-    }
-    
-    @Override
-    public void setStyleClass(String cssClass) {
-        styleProxy.setStyleClass(cssClass);
-    }
-
-    @Override
-    public void addStyleClass(String cssClass) {
-        styleProxy.addStyleClass(cssClass);
-    }
-
-    @Override
-    public boolean removeStyleClass(String cssClass) {
-        return styleProxy.removeStyleClass(cssClass);
-    }
-    
+    /**
+     * Returns the element stored in the vertex.
+     * 
+     * @return      stored element
+     */
+    public V element();
 }

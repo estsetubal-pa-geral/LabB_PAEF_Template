@@ -1,9 +1,12 @@
 #Ignore folders
 
+/.idea/
+/out/
 /test/
 /build/
 /dist/
 **/javadoc/
+*.iml
 
 # Hanging html files
 *.html
